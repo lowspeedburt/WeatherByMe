@@ -6,8 +6,6 @@ var myAPIToken = '7e39edcee81697d3718dca8fac06d4ba';
 var unit = '&units=imperial';
 var mode = '&mode=html';
 
-
-
 function getCity() {
     return new Promise(function(resolve) {
         http.get('http://freegeoip.net/json/', function(res) {
