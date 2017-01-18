@@ -5636,8 +5636,7 @@ getCity().then(function(data) {
         console.log('Current Location: ' + city + ', ' + state)
         console.log('Current Temperature: ' + temperatureInDegrees + '°F');
         console.log('Current Conditons: ' + weatherDescription);
-        //console.log(elem[2].innerHTML);
-
+        
     });
 });
 
