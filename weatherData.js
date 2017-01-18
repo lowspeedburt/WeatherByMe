@@ -23,6 +23,7 @@ getCity().then(function(data) {
     var city = data.city;
     var state = data.region_code;
     var temperatureString = '';
+    var weatherDescription = '';
     var temperatureInDegrees = 0;
 
     function result() {
@@ -41,12 +42,16 @@ getCity().then(function(data) {
         data = JSON.parse(data);
        	temperatureString = JSON.stringify(data.main.temp);
         temperatureInDegrees = Math.floor(Number(temperatureString));
+        weatherDescription = data.weather[1].description;
 
-        var elem = document.querySelectorAll('#location,#temp');
+        var elem = document.querySelectorAll('#location,#temp,#conditions');
         elem[0].innerHTML = 'Current Location:   ' + city + ', ' + state;
         elem[1].innerHTML = 'Current Temperature:   ' + temperatureInDegrees + '°F';
+        elem[2].innerHTML = 'Current Conditons: ' + weatherDescription;
         console.log('Current Location: ' + city + ', ' + state)
         console.log('Current Temperature: ' + temperatureInDegrees + '°F');
+        console.log('Current Conditons: ' + weatherDescription);
+        //console.log(elem[2].innerHTML);
 
     });
 });
