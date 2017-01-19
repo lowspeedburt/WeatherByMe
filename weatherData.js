@@ -41,16 +41,16 @@ getCity().then(function(data) {
     result().then(function(data) {
         data = JSON.parse(data);
        	temperatureString = JSON.stringify(data.main.temp);
-        temperatureInDegrees = Math.floor(Number(temperatureString));
-        weatherDescription = data.weather[1].description;
+        temperatureInDegrees = Math.ceil(Number(temperatureString));
+        weatherDescription = JSON.stringify(data.weather[0].description);
 
         var elem = document.querySelectorAll('#location,#temp,#conditions');
         elem[0].innerHTML = 'Current Location:   ' + city + ', ' + state;
         elem[1].innerHTML = 'Current Temperature:   ' + temperatureInDegrees + '°F';
-        elem[2].innerHTML = 'Current Conditons: ' + weatherDescription;
+        elem[2].innerHTML = 'Current Conditions: ' + weatherDescription;
         console.log('Current Location: ' + city + ', ' + state)
         console.log('Current Temperature: ' + temperatureInDegrees + '°F');
-        console.log('Current Conditons: ' + weatherDescription);
+        console.log('Current Conditions: ' + weatherDescription);
         
     });
 });
